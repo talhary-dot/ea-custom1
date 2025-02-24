@@ -65,17 +65,17 @@ function App() {
 
       <section className="nav-section">
         <div className="request-btn">
-          <a href="#">
+          <a href="#quote">
             <button>REQUEST QUOTE</button>
           </a>
         </div>
         <div className="home-icon">
-          <a href="#">
+          <a href="/">
             <img src="/Vector.png" alt="" />
           </a>
         </div>
         <div className="contact-btn">
-          <a href="#">
+          <a href="#contact-us">
             <button>CONTACT US</button>
           </a>
         </div>
@@ -88,7 +88,7 @@ function App() {
           </a>
         </div>
         <div className="home-icon2">
-          <a href="#">
+          <a href="/">
             <img src="/Vector.png" alt="" />
           </a>
         </div>
@@ -284,11 +284,11 @@ function App() {
 
       <section className="reviews-box">
         <div className="reviews">
-          <h1>Reviews 5/5</h1>
-          <div className="reviews-icons">
+          <h1  style={{marginBottom:'20px'}}> Reviews 5/5</h1>
+          <div  style={{marginBottom:'20px'}} className="reviews-icons">
             <img src="/Group 17.png" />
           </div>
-          <p>300 Google reviews</p>
+          <p style={{marginBottom:'20px'}} >300 Google reviews</p>
         </div>
         <div>
         <script src="https://static.elfsight.com/platform/platform.js" async></script>
