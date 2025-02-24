@@ -70,7 +70,7 @@ function App() {
           </a>
         </div>
         <div className="home-icon">
-          <a href="/">
+          <a href="#">
             <img src="/Vector.png" alt="" />
           </a>
         </div>
@@ -88,7 +88,7 @@ function App() {
           </a>
         </div>
         <div className="home-icon2">
-          <a href="/">
+          <a href="#">
             <img src="/Vector.png" alt="" />
           </a>
         </div>
