@@ -1,0 +1,490 @@
+* {
+  font-family: "Inter", serif;
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+}
+.hero-section {
+  background-image: url(/home.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+.logo-image img {
+  width: 7%;
+  padding-top: 20px;
+  padding-left: 26px;
+}
+
+.herosection-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.hero-image img {
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.hero-icon {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-icon a img {
+  width: 40px;
+  height: 40px;
+  padding-left: 6px;
+}
+.nav-section {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 20px;
+}
+.request-btn button {
+  background-color: #26d546;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  width: 146px;
+  height: 44px;
+}
+.contact-btn button {
+  background-color: transparent;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 14px;
+  border: 1px solid #ffff;
+  width: 146px;
+  height: 44px;
+}
+.nav-section2 {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 20px;
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 12px 0px;
+  z-index: 1;
+}
+
+.silder-box {
+  margin-top: 80px;
+  margin-bottom: 55px;
+}
+.silder-text h1 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.silder-text p {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 500;
+}
+
+.slider-box {
+  padding-left: 10%;
+  padding-top: 15%;
+}
+
+.slider-image {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+}
+.slick-next {
+  right: 0 !important;
+}
+.slick-dots {
+  bottom: -55px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 15px !important;
+}
+
+.helmet-box img {
+  margin-top: 20%;
+  margin-bottom: 10%;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 27rem;
+}
+.Conta-form-box {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  padding: 50px;
+}
+
+.contact-text {
+  width: 50%;
+  padding-right: 20px;
+}
+.contact-text h1 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+.contact-text h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: black;
+  line-height: 20px;
+}
+.contact-text p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 20px;
+  line-height: 20px;
+}
+.contact-text h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.contact-form {
+  width: 45%;
+}
+.contact-form h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.contact-form p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+form {
+  width: 100%;
+  max-width: 400px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  border: 1.4px solid black;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #26d546;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #22c043;
+}
+
+.upload-label {
+  display: block;
+  text-align: center;
+  border: 1.4px solid #000000;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.upload-label:hover {
+  background-color: #f9f9f9;
+}
+
+.upload-label input {
+  display: none;
+}
+
+.reviews-box {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+.reviews h1 {
+  font-size: 26px;
+  font-weight: 600;
+}
+.reviews-icons img {
+  width: 100%;
+}
+.reviews p {
+  font-size: 16px;
+}
+.slick-dots li button:before {
+  scale: 1.1;
+  color: black !important;
+  opacity: 1 !important;
+}
+.slick-dots li.slick-active {
+  scale: 1.7 !important;
+}
+
+.footer-contact {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px;
+  background-color: black;
+}
+.footer-text h1 {
+  font-size: 18px;
+  color: #ffff;
+  line-height: 30px;
+}
+.footer-img img {
+  width: 10rem;
+}
+.footer-icon {
+  padding-top: 20px;
+}
+.footer-icon img {
+  padding: 8px;
+}
+.slick-next:before{
+  display: none !important;
+}
+
+
+div.eapps-widget{
+  overflow: hidden !important;
+  margin:  20px 10px !important;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Conta-form-box {
+    padding: 30px;
+  }
+
+  .contact-text {
+    width: 100%; /* Full width for smaller screens */
+    padding-right: 0;
+    margin-bottom: 20px; /* Add spacing between sections */
+  }
+
+  .contact-form {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  button {
+    width: 100%; /* Full width for buttons */
+  }
+}
+
+@media (max-width: 768px) {
+  .Conta-form-box {
+    flex-direction: column; /* Stack sections vertically */
+  }
+
+  .contact-text h1,
+  .contact-form h1 {
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .contact-text h2 {
+    font-size: 16px;
+  }
+
+  .contact-text p,
+  .contact-form p {
+    font-size: 14px;
+  }
+
+  .contact-text h3 {
+    font-size: 15px;
+  }
+
+  input,
+  textarea {
+    font-size: 14px; /* Adjust input font size */
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .Conta-form-box {
+    padding: 15px;
+  }
+
+  .contact-text h1,
+  .contact-form h1 {
+    font-size: 18px;
+  }
+
+  .contact-text h2 {
+    font-size: 14px;
+  }
+
+  .contact-text p,
+  .contact-form p {
+    font-size: 12px;
+    max-width: 250px;
+    margin-bottom: 25px;
+  }
+
+  .contact-text h3 {
+    font-size: 13px;
+    max-width: 314px;
+  }
+
+  input,
+  textarea {
+    font-size: 12px;
+    width: 96%;
+  }
+
+  button {
+    font-size: 12px;
+  }
+  .hero-image img {
+    width: 15rem;
+  }
+  .logo-image img {
+    width: 4rem;
+  }
+
+  .silder-text h1 {
+    text-align: left;
+    padding-left: 20px;
+    max-width: 300px;
+    font-size: 20px;
+  }
+  .silder-text p {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+  }
+  .slider-image {
+    width: 8rem;
+    padding-left: 10%;
+  }
+  .helmet-box img {
+    height: 10rem;
+  }
+  .reviews {
+    gap: 5px;
+  }
+  .reviews h1 {
+    font-size: 20px;
+  }
+  .footer-box {
+    padding: 20px 20px;
+    margin-bottom: 36px;
+  }
+  .main-flex-box {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+  }
+  .d-form-box1 {
+    padding-top: 7px;
+    font-size: 12px;
+  }
+  .d-form-box2 {
+    width: 70% !important;
+  }
+  .footer-icon img {
+    width: 30px;
+  }
+  .footer-icon {
+    padding: 5px;
+  }
+  .nav-section {
+    display: none;
+  }
+  .nav-section2 {
+    display: flex;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-section {
+    gap: 1rem;
+  }
+  .footer-text h1 {
+    font-size: 12px;
+  }
+  .footer-img img {
+    width: 7rem;
+  }
+  .contact-btn button {
+    width: 130px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .request-btn button {
+    width: 130px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .reviews p {
+    font-size: 10px;
+  }
+  .reviews h1 {
+    font-size: 15px;
+  }
+}
