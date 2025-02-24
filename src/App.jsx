@@ -50,13 +50,13 @@ function App() {
             <img src="/main-image.png" alt="" />
           </div>
           <div className="hero-icon">
-            <a href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
+            <a target="_blank" href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
               <img src="/insta.png" alt="" />
             </a>
-            <a href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
+            <a target="_blank" href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
               <img src="/facebook.png" alt="" />
             </a>
-            <a href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
+            <a target="_blank" href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
               <img src="/tiktok.png" alt="" />
             </a>
           </div>
@@ -308,13 +308,13 @@ function App() {
             <h1>Email: contact@eacustoms.co.uk</h1>
             <h1>Phone: 07415112293</h1>
             <div className="footer-icon">
-            <a href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
+            <a target="_blank" href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
               <img src="/insta.png" alt="" />
             </a>
-            <a href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
+            <a target="_blank" href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
               <img src="/facebook.png" alt="" />
             </a>
-            <a href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
+            <a target="_blank" href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
               <img src="/tiktok.png" alt="" />
             </a>
             </div>
