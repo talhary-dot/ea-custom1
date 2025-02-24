@@ -284,11 +284,8 @@ function App() {
 
       <section className="reviews-box">
         <div className="reviews">
-          <h1  style={{marginBottom:'20px'}}> Reviews 5/5</h1>
-          <div  style={{marginBottom:'20px'}} className="reviews-icons">
-            <img src="/Group 17.png" />
-          </div>
-          <p style={{marginBottom:'20px'}} >300 Google reviews</p>
+          <h1> What Customers Says</h1>
+          
         </div>
         <div>
         <script src="https://static.elfsight.com/platform/platform.js" async></script>

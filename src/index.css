@@ -10,7 +10,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 .logo-image img {
   width: 7%;
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  height: 60vh;
   text-align: center;
 }
 
@@ -48,7 +48,8 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  padding: 20px;
+  padding: 10px;
+  height: 7vh;
 }
 .request-btn button {
   background-color: #26d546;
@@ -121,7 +122,7 @@
 }
 
 .helmet-box img {
-  margin-top: 20%;
+
   margin-bottom: 10%;
   background-position: center;
   background-size: cover;
@@ -241,28 +242,7 @@ button:hover {
   display: none;
 }
 
-.reviews-box {
-  text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
 
-}
-.reviews {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 13px;
-}
-.reviews h1 {
-  font-size: 26px;
-  font-weight: 600;
-}
-.reviews-icons img {
-  width: 100%;
-}
-.reviews p {
-  font-size: 16px;
-}
 .slick-dots li button:before {
   scale: 1.1;
   color: black !important;
@@ -305,7 +285,11 @@ button:hover {
   display: none !important;
 }
 
-
+.reviews h1{
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
 div.eapps-widget{
   overflow: hidden !important;
   margin:  20px 10px !important;
@@ -426,11 +410,9 @@ div.eapps-widget{
   .helmet-box img {
     height: 10rem;
   }
-  .reviews {
-    gap: 5px;
-  }
+ 
   .reviews h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
   .footer-box {
     padding: 20px 20px;
@@ -482,10 +464,8 @@ div.eapps-widget{
     height: 40px;
     font-size: 12px;
   }
-  .reviews p {
-    font-size: 10px;
-  }
+
   .reviews h1 {
-    font-size: 15px;
+    font-size: 22px;
   }
 }
