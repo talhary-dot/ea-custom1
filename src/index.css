@@ -273,7 +273,8 @@ button:hover {
   line-height: 30px;
 }
 .footer-img img {
-  width: 10rem;
+  width: 70%;
+  
 }
 .footer-icon {
   padding-top: 20px;
