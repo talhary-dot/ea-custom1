@@ -35,7 +35,11 @@ function App() {
     });
     setImages(imagePreviews); // Update state with image previews
   };
-
+  const handleDelete = (index) => {
+    setImages(
+      (prevImages) => prevImages.filter((_, i) => i !== index) // Remove the image at the specified index
+    );
+  };
   return (
     <>
       <section className="hero-section">
@@ -50,13 +54,22 @@ function App() {
             <img src="/main-image.png" alt="" />
           </div>
           <div className="hero-icon">
-            <a target="_blank" href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr"
+            >
               <img src="/insta.png" alt="" />
             </a>
-            <a target="_blank" href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr"
+            >
               <img src="/facebook.png" alt="" />
             </a>
-            <a target="_blank" href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1"
+            >
               <img src="/tiktok.png" alt="" />
             </a>
           </div>
@@ -263,7 +276,15 @@ function App() {
               id="preview-container"
             >
               {images.map((image, index) => (
-                <div key={index} className="image-preview">
+                <div
+                  key={index}
+                  className="image-preview"
+                  style={{
+                    position: "relative", // Add position relative to the parent container
+                    display: "inline-block", // Ensure images are displayed inline
+                    margin: "10px", // Add some spacing between images
+                  }}
+                >
                   <img
                     src={image.preview}
                     alt={`Preview ${index}`}
@@ -271,8 +292,31 @@ function App() {
                       width: "100px",
                       height: "100px",
                       objectFit: "cover",
+                      borderRadius: "5px", // Optional: Add rounded corners
+                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Optional: Add a shadow for better visuals
                     }}
                   />
+                  <button
+                    onClick={() => handleDelete(index)}
+                    style={{
+                      position: "absolute",
+                      top: "5px",
+                      right: "5px",
+                      background: "red",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "50%",
+                      width: "20px",
+                      height: "20px",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "12px", // Ensure the "X" fits well
+                    }}
+                  >
+                    X
+                  </button>
                 </div>
               ))}
             </div>
@@ -285,11 +329,16 @@ function App() {
       <section className="reviews-box">
         <div className="reviews">
           <h1> What Customers Says</h1>
-          
         </div>
         <div>
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-a403eccd-b63d-40a6-8659-5c40c7627a0c" data-elfsight-app-lazy></div>
+          <script
+            src="https://static.elfsight.com/platform/platform.js"
+            async
+          ></script>
+          <div
+            className="elfsight-app-a403eccd-b63d-40a6-8659-5c40c7627a0c"
+            data-elfsight-app-lazy
+          ></div>
         </div>
       </section>
       <section className="helmet-box">
@@ -305,15 +354,24 @@ function App() {
             <h1>Email: contact@eacustoms.co.uk</h1>
             <h1>Phone: 07415112293</h1>
             <div className="footer-icon">
-            <a target="_blank" href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr">
-              <img src="/insta.png" alt="" />
-            </a>
-            <a target="_blank" href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr">
-              <img src="/facebook.png" alt="" />
-            </a>
-            <a target="_blank" href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1">
-              <img src="/tiktok.png" alt="" />
-            </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/eacustoms2?igsh=ZTViMnlzajcwcW5u&utm_source=qr"
+              >
+                <img src="/insta.png" alt="" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/share/1E6AwVTHtk/?mibextid=wwXIfr"
+              >
+                <img src="/facebook.png" alt="" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.tiktok.com/@eacustoms2?_t=ZN-8u8I3G4YL7W&_r=1"
+              >
+                <img src="/tiktok.png" alt="" />
+              </a>
             </div>
           </div>
           <div className="footer-img">
