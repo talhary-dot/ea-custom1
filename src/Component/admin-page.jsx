@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Carousel from "./Component/Silder";
+import Carousel from "./Silder";
 
-import "./App.css";
-import { FullCarousel } from "./Component/slider1";
+import { FullCarousel } from "./slider1";
 const imagesOne = [
   "/helmet1.png",
   "/helmet2.png",
@@ -26,28 +25,20 @@ function App() {
   const [images, setImages] = useState([]);
 
   const handleUpload = (e) => {
-    const files = Array.from(e.target.files); 
+    const files = Array.from(e.target.files); // Convert FileList to an array
     const imagePreviews = files.map((file) => {
       return {
         file,
-        preview: URL.createObjectURL(file), 
+        preview: URL.createObjectURL(file), // Create a preview URL for the image
       };
     });
-    setImages(imagePreviews); 
+    setImages(imagePreviews); // Update state with image previews
   };
-  const handleDelete = (index) => {
-    setImages(
-      (prevImages) => prevImages.filter((_, i) => i !== index) 
-    );
-  };
-<<<<<<< HEAD
-=======
   const handleDelete = (index) => {
     setImages(
       (prevImages) => prevImages.filter((_, i) => i !== index) // Remove the image at the specified index
     );
   };
->>>>>>> 9bb06636499d5a8f47e0544d0d0ab14a634e789d
   return (
     <>
       <section className="hero-section">
@@ -124,6 +115,9 @@ function App() {
         <div className="silder-text">
           <h1>CUSTOM EVERYTHING DARE TO BE DIFFERENT </h1>
           <p>Motorbikes, helmets & more </p>
+          <div className="change-pic">
+            <button>Change phots</button>
+          </div>
         </div>
         <div>
           <Carousel images={imagesOne} />
@@ -390,22 +384,5 @@ function App() {
     </>
   );
 }
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AdminRoute from "./Component/admin-page";
-// Make sure to import the App component
 
-const NewApp = () => {
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/admin" element={<AdminRoute />} />
-        </Routes>
-      </Router>
-    </div>
-  );
-};
-
-export default NewApp;
+export default App;
