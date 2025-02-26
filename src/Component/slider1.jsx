@@ -22,7 +22,7 @@ export const FullCarousel = ({ images }) => {
         {images?.map((e,i) => {
           return (
             <div key={i} className="">
-              <img src={e} className="" />
+              <img src={e} className="" style={{objectFit:"contain"}} />
             </div>
           );
         })}

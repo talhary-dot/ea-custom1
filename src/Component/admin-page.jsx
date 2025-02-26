@@ -2,28 +2,32 @@ import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./Silder";
-
+import axios from "axios";
 import { FullCarousel } from "./slider1";
-const imagesOne = [
-  "/helmet1.png",
-  "/helmet2.png",
-  "/helmet3.png",
-  "/helmet4.png",
-  "/helmet5.png",
-  "/helmet6.png",
-  "/helmet7.png",
-];
-const imagesTwo = [
-  "/Group1.png",
-  "/Group2.png",
-  "/Group3.png",
-  "/Group4.png",
-  "/Group5.png",
-];
-const imagesThree = ["/Rectangle.png", "Property1.png", "Property2.png"];
+import ImageUploader, { url } from "./uploader";
+
+
 function App() {
   const [images, setImages] = useState([]);
-
+  const [imagesOne,setImagesOne] =useState([])
+  const [imagesTwo,setImagesTwo] = useState([])
+  const [imagesThree,setImagesThree] = useState([])
+  const [imageMain,setImageMain] = useState()
+  const fetchImages = async () => {
+    try {
+      const { data } = await axios.get(url+'/api/banner1-photos');
+       setImagesOne(data.images)
+      const {data:image2} = await axios.get(url+'/api/banner2-photos')
+      setImagesTwo(image2.images)
+      const {data:image3} = await axios.get(url+'/api/banner3-photos')
+      setImagesThree(image3.images)
+      const {data:mainImage} = await axios.get(url+'/api/banner4-photos')
+      setImageMain(mainImage.images[0])
+    } catch (error) {}
+  };
+  useEffect(() => {
+    fetchImages()
+  },[]);
   const handleUpload = (e) => {
     const files = Array.from(e.target.files); // Convert FileList to an array
     const imagePreviews = files.map((file) => {
@@ -41,13 +45,17 @@ function App() {
   };
   return (
     <>
-      <section className="hero-section">
-        <div className="logo-image">
+      <section className="hero-section"
+        style={{
+          backgroundImage: `url(${url+"/"+imageMain})`,
+        }}
+      >
+         <div className="logo-image">
           <a href="">
             <img src="/main-image.png" alt="" />
           </a>
         </div>
-
+        <ImageUploader fetchImages={fetchImages} banner={"banner4"} />
         <div className="herosection-box">
           <div className="hero-image">
             <img src="/main-image.png" alt="" />
@@ -115,12 +123,11 @@ function App() {
         <div className="silder-text">
           <h1>CUSTOM EVERYTHING DARE TO BE DIFFERENT </h1>
           <p>Motorbikes, helmets & more </p>
-          <div className="change-pic">
-            <button>Change phots</button>
-          </div>
+         
         </div>
         <div>
-          <Carousel images={imagesOne} />
+        <ImageUploader fetchImages={fetchImages} banner={"banner1"} />
+          <Carousel images={imagesOne}/>
         </div>
       </section>
 
@@ -130,11 +137,13 @@ function App() {
           <p>Wheels, bumpers, & more </p>
         </div>
         <div>
-          <Carousel images={imagesOne} />
+        <ImageUploader fetchImages={fetchImages} banner={"banner2"} />
+          <Carousel images={imagesTwo} />
         </div>
       </section>
 
       <section className="helmet-box">
+      <ImageUploader fetchImages={fetchImages} banner={"banner3"} />
         <FullCarousel images={imagesThree} />
       </section>
 

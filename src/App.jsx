@@ -2,29 +2,32 @@ import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./Component/Silder";
-
+import axios from 'axios'
 import "./App.css";
 import { FullCarousel } from "./Component/slider1";
-const imagesOne = [
-  "/helmet1.png",
-  "/helmet2.png",
-  "/helmet3.png",
-  "/helmet4.png",
-  "/helmet5.png",
-  "/helmet6.png",
-  "/helmet7.png",
-];
-const imagesTwo = [
-  "/Group1.png",
-  "/Group2.png",
-  "/Group3.png",
-  "/Group4.png",
-  "/Group5.png",
-];
-const imagesThree = ["/Rectangle.png", "Property1.png", "Property2.png"];
+
 function App() {
   const [images, setImages] = useState([]);
-
+  const [imagesOne,setImagesOne] =useState([])
+  const [imagesTwo,setImagesTwo] = useState([])
+  const [imagesThree,setImagesThree] = useState([])
+  const [imageMain,setImageMain] = useState()
+  const fetchImages = async () => {
+    try {
+      const { data } = await axios.get(url+'/api/banner1-photos');
+       setImagesOne(data.images)
+      const {data:image2} = await axios.get(url+'/api/banner2-photos')
+      setImagesTwo(image2.images)
+      const {data:image3} = await axios.get(url+'/api/banner3-photos')
+      setImagesThree(image3.images)
+      const {data:mainImage} = await axios.get(url+'/api/banner4-photos')
+      setImageMain(mainImage.images[0])
+    } catch (error) {}
+  };
+  useEffect(() => {
+    fetchImages()
+  },[]);
+  
   const handleUpload = (e) => {
     const files = Array.from(e.target.files); 
     const imagePreviews = files.map((file) => {
@@ -40,17 +43,12 @@ function App() {
       (prevImages) => prevImages.filter((_, i) => i !== index) 
     );
   };
-<<<<<<< HEAD
-=======
-  const handleDelete = (index) => {
-    setImages(
-      (prevImages) => prevImages.filter((_, i) => i !== index) // Remove the image at the specified index
-    );
-  };
->>>>>>> 9bb06636499d5a8f47e0544d0d0ab14a634e789d
   return (
     <>
-      <section className="hero-section">
+      <section className="hero-section"
+       style={{
+        backgroundImage: `url(${url+"/"+imageMain})`,
+      }}>
         <div className="logo-image">
           <a href="">
             <img src="/main-image.png" alt="" />
@@ -136,7 +134,7 @@ function App() {
           <p>Wheels, bumpers, & more </p>
         </div>
         <div>
-          <Carousel images={imagesOne} />
+          <Carousel  images={imagesTwo} />
         </div>
       </section>
 
@@ -393,6 +391,7 @@ function App() {
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminRoute from "./Component/admin-page";
+import { url } from "./Component/uploader";
 // Make sure to import the App component
 
 const NewApp = () => {

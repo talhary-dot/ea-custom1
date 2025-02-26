@@ -50,15 +50,9 @@
   gap: 5rem;
   padding: 10px;
   position: fixed;
-<<<<<<< HEAD
   width: 100%;
   z-index: 1;
   bottom: 0;
-=======
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
->>>>>>> 9bb06636499d5a8f47e0544d0d0ab14a634e789d
 }
 .request-btn button {
   background-color: #26d546;
@@ -452,12 +446,6 @@ div.eapps-widget{
   .nav-section2 {
     display: flex;
   }
-<<<<<<< HEAD
-=======
-  .footer-text h1 {
-    font-size: 11px;
-  }
->>>>>>> 9bb06636499d5a8f47e0544d0d0ab14a634e789d
   .footer-text{
     width: 70%;
   }
