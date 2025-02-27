@@ -5,6 +5,7 @@ import Carousel from "./Silder";
 import axios from "axios";
 import { FullCarousel } from "./slider1";
 import ImageUploader, { url } from "./uploader";
+import { Link } from "react-router-dom";
 
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
   const [imagesTwo,setImagesTwo] = useState([])
   const [imagesThree,setImagesThree] = useState([])
   const [imageMain,setImageMain] = useState()
+  const token = localStorage.getItem('token');
+  if(!token)
+    return <div>
+      Please <Link to={'/login'}> Login </Link>
+    </div>
   const fetchImages = async () => {
     try {
       const { data } = await axios.get(url+'/api/banner1-photos');

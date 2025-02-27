@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import "./Loginpage.css";
-
+import axios from "axios";
+import { url } from "./uploader";
+import { useNavigate } from "react-router-dom";
 const Loginpage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = (e) => {
+  const [error,setError] = useState("")
+  const naviagate = useNavigate()
+  const handleSubmit =async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    try {
+       const {data} = await axios.post(url+'/auth/login',{email,password})
+       if(!data.token){
+        return setError(data.message)
+       }
+       localStorage.setItem('token',data?.token)
+       naviagate('/admin')
+    } catch (error) {
+      console.log(error?.response.data.message)
+      setError(error?.response.data.message)
+    }
+ 
   };
 
   return (
@@ -42,6 +55,7 @@ const Loginpage = () => {
           Login
         </button>
       </form>
+      {error && <div>{error}</div>}
     </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import path from "path";
+import jwt from 'jsonwebtoken'
 import fs from "fs";
 const router = express.Router();
 const folders = ["banner1", "banner2", "banner3", "banner4"];
@@ -26,6 +27,7 @@ const deleteFilesInFolder = (folder) => {
     });
   });
 };
+const JWT_SECRET = process.env.JWT_SECRET_KEY
 const storage = (folder) =>
   multer.diskStorage({
     destination: (req, file, cb) => {
@@ -43,8 +45,19 @@ folders.forEach((folder) => {
       deleteFilesInFolder(folder);
       next();
     },
+    (req,res,next)=>{
+      const token = req.headers['authorization'].split(' ')[1];
+      
+      const decoded = jwt.decode(token,JWT_SECRET)
+      if(!decoded.userId){
+        return res.json({message:"token not good"})
+
+      }
+      next()
+    },
     upload(folder).array("photos", 10),
     (req, res) => {
+    
       res.json({
         message: `Photos uploaded successfully to ${folder}!`,
         files: req.files,

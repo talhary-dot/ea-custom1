@@ -6,7 +6,7 @@ function ImageUploader({ banner, fetchImages }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
   const [uploading, setUploading] = useState(false);
-
+ const [error,setError] = useState('')
   const handleImageChange = (event) => {
     if (event.target.files) {
       const files = Array.from(event.target.files);
@@ -29,11 +29,14 @@ function ImageUploader({ banner, fetchImages }) {
     });
 
     setUploading(true);
-
+    if(!localStorage.getItem('token')) return  setError('no token found')
     try {
       const response = await fetch(`${url}/api/upload-${banner}`, {
         method: "POST",
         body: formData,
+        headers:{
+          authorization:"Bearer "+localStorage.getItem('token')
+        }
       });
 
       if (response.ok) {
@@ -89,6 +92,7 @@ function ImageUploader({ banner, fetchImages }) {
       >
         {uploading ? "Uploading..." : "Upload Images"}
       </button>
+      {error && <div>${error} </div>}
     </div>
   );
 }
