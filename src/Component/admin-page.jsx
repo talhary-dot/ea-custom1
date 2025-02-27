@@ -62,9 +62,9 @@ function App() {
           </a>
         </div>
         <ImageUploader fetchImages={fetchImages} banner={"banner4"} />
-        <div className="herosection-box">
-          <div className="hero-image">
-            <img src="/main-image.png" alt="" />
+        <div className="herosection-box" style={{ height: "35vh" }} >
+          <div className="hero-image"  >
+            <img src="/main-image.png" alt="" style={{ height: "auto", width: "50%" }} />
           </div>
           <div className="hero-icon">
             <a
@@ -148,8 +148,8 @@ function App() {
         </div>
       </section>
 
-      <section className="helmet-box">
-      <ImageUploader fetchImages={fetchImages} banner={"banner3"} />
+      <section className="helmet-box" style={{ marginTop:"60px" }} >
+      <ImageUploader  fetchImages={fetchImages} banner={"banner3"} />
         <FullCarousel images={imagesThree} />
       </section>
 

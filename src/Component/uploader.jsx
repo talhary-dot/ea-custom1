@@ -109,6 +109,8 @@ const styles = {
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     backgroundColor: "#fff",
+    marginBottom: "20px",
+    marginTop: "20px",
   },
   heading: {
     textAlign: "center",
