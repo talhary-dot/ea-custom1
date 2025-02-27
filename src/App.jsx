@@ -392,6 +392,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminRoute from "./Component/admin-page";
 import { url } from "./Component/uploader";
+import Loginpage from "./Component/Loginpage";
 // Make sure to import the App component
 
 const NewApp = () => {
@@ -401,6 +402,7 @@ const NewApp = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/admin" element={<AdminRoute />} />
+          <Route path="/login" element={<Loginpage />}  />
         </Routes>
       </Router>
     </div>
