@@ -6,7 +6,7 @@ function ImageUploader({ banner, fetchImages }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
   const [uploading, setUploading] = useState(false);
- const [error,setError] = useState('')
+  const [error,setError] = useState('')
   const handleImageChange = (event) => {
     if (event.target.files) {
       const files = Array.from(event.target.files);
@@ -16,7 +16,7 @@ function ImageUploader({ banner, fetchImages }) {
       setImageUrls(urls);
     }
   };
-
+  
   const handleUpload = async () => {
     if (selectedImages.length === 0) {
       alert("Please select at least one image.");
@@ -45,6 +45,7 @@ function ImageUploader({ banner, fetchImages }) {
         setSelectedImages([]);
         setImageUrls([]);
         fetchImages();
+        
       } else {
         alert("Image upload failed.");
       }
@@ -86,7 +87,7 @@ function ImageUploader({ banner, fetchImages }) {
         disabled={selectedImages.length === 0 || uploading}
         style={{
           ...styles.uploadButton,
-          backgroundColor: uploading ? "#ccc" : "#007bff",
+          backgroundColor: uploading ? "#ccc" : "green",
           cursor: uploading ? "not-allowed" : "pointer",
         }}
       >

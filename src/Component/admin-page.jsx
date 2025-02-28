@@ -6,34 +6,36 @@ import axios from "axios";
 import { FullCarousel } from "./slider1";
 import ImageUploader, { url } from "./uploader";
 import { Link } from "react-router-dom";
-
+import { Uploaded } from "./admin/imageCarosal";
 
 function App() {
   const [images, setImages] = useState([]);
-  const [imagesOne,setImagesOne] =useState([])
-  const [imagesTwo,setImagesTwo] = useState([])
-  const [imagesThree,setImagesThree] = useState([])
-  const [imageMain,setImageMain] = useState()
-  const token = localStorage.getItem('token');
-  if(!token)
-    return <div>
-      Please <Link to={'/login'}> Login </Link>
-    </div>
+  const [imagesOne, setImagesOne] = useState([]);
+  const [imagesTwo, setImagesTwo] = useState([]);
+  const [imagesThree, setImagesThree] = useState([]);
+  const [imageMain, setImageMain] = useState();
+  const token = localStorage.getItem("token");
+  if (!token)
+    return (
+      <div>
+        Please <Link to={"/login"}> Login </Link>
+      </div>
+    );
   const fetchImages = async () => {
     try {
-      const { data } = await axios.get(url+'/api/banner1-photos');
-       setImagesOne(data.images)
-      const {data:image2} = await axios.get(url+'/api/banner2-photos')
-      setImagesTwo(image2.images)
-      const {data:image3} = await axios.get(url+'/api/banner3-photos')
-      setImagesThree(image3.images)
-      const {data:mainImage} = await axios.get(url+'/api/banner4-photos')
-      setImageMain(mainImage.images[0])
+      const { data } = await axios.get(url + "/api/banner1-photos");
+      setImagesOne(data.images);
+      const { data: image2 } = await axios.get(url + "/api/banner2-photos");
+      setImagesTwo(image2.images);
+      const { data: image3 } = await axios.get(url + "/api/banner3-photos");
+      setImagesThree(image3.images);
+      const { data: mainImage } = await axios.get(url + "/api/banner4-photos");
+      setImageMain(mainImage.images[0]);
     } catch (error) {}
   };
   useEffect(() => {
-    fetchImages()
-  },[]);
+    fetchImages();
+  }, []);
   const handleUpload = (e) => {
     const files = Array.from(e.target.files); // Convert FileList to an array
     const imagePreviews = files.map((file) => {
@@ -51,20 +53,25 @@ function App() {
   };
   return (
     <>
-      <section className="hero-section"
+      <section
+        className="hero-section"
         style={{
-          backgroundImage: `url(${url+"/"+imageMain})`,
+          backgroundImage: `url(${url + "/" + imageMain})`,
         }}
       >
-         <div className="logo-image">
+        <div className="logo-image">
           <a href="">
             <img src="/main-image.png" alt="" />
           </a>
         </div>
         <ImageUploader fetchImages={fetchImages} banner={"banner4"} />
-        <div className="herosection-box" style={{ height: "35vh" }} >
-          <div className="hero-image"  >
-            <img src="/main-image.png" alt="" style={{ height: "auto", width: "50%" }} />
+        <div className="herosection-box" style={{ height: "35vh" }}>
+          <div className="hero-image">
+            <img
+              src="/main-image.png"
+              alt=""
+              style={{ height: "auto", width: "50%" }}
+            />
           </div>
           <div className="hero-icon">
             <a
@@ -129,11 +136,10 @@ function App() {
         <div className="silder-text">
           <h1>CUSTOM EVERYTHING DARE TO BE DIFFERENT </h1>
           <p>Motorbikes, helmets & more </p>
-         
         </div>
         <div>
-        <ImageUploader fetchImages={fetchImages} banner={"banner1"} />
-          <Carousel images={imagesOne}/>
+          <ImageUploader fetchImages={fetchImages} banner={"banner1"} />
+          <Uploaded fetchImages={fetchImages} imagesOne={imagesOne} folder={'banner1'}/>
         </div>
       </section>
 
@@ -143,14 +149,14 @@ function App() {
           <p>Wheels, bumpers, & more </p>
         </div>
         <div>
-        <ImageUploader fetchImages={fetchImages} banner={"banner2"} />
-          <Carousel images={imagesTwo} />
+          <ImageUploader fetchImages={fetchImages} banner={"banner2"} />
+          <Uploaded fetchImages={fetchImages} imagesOne={imagesTwo} folder={'banner2'}/>
         </div>
       </section>
 
-      <section className="helmet-box" style={{ marginTop:"60px" }} >
-      <ImageUploader  fetchImages={fetchImages} banner={"banner3"} />
-        <FullCarousel images={imagesThree} />
+      <section className="helmet-box" style={{ marginTop: "60px" }}>
+        <ImageUploader fetchImages={fetchImages} banner={"banner3"} />
+        <Uploaded fetchImages={fetchImages} imagesOne={imagesThree} folder={'banner3'}/>
       </section>
 
       <section className="Conta-form-box">
