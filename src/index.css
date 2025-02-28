@@ -258,7 +258,7 @@ button:hover {
 
 .footer-contact {
   text-align: center;
-  font-size: 16px;
+  font-size: 30px;
   font-weight: 500;
   margin-top: 50px;
   margin-bottom: 10px;
@@ -270,6 +270,7 @@ button:hover {
   align-items: center;
   padding: 20px 70px;
   background-color: black;
+  margin-bottom: 55px;
 }
 .footer-text h1 {
   font-size: 18px;
@@ -282,6 +283,7 @@ button:hover {
 }
 .footer-icon {
   padding-top: 20px;
+  display: flex;
 }
 .footer-icon img {
   padding: 8px;
@@ -421,7 +423,7 @@ div.eapps-widget{
   }
   .footer-box {
     padding: 20px 20px;
-    margin-bottom: 45px;
+    margin-bottom: 55px;
   }
   .main-flex-box {
     display: flex;
@@ -436,7 +438,7 @@ div.eapps-widget{
     width: 70% !important;
   }
   .footer-icon img {
-    width: 25px;
+    width: 50px;
   }
   .footer-icon {
     padding: 5px;
@@ -453,6 +455,9 @@ div.eapps-widget{
   .footer-img{
     width: 30%;
   }
+  .footer-img img {
+    width: 100%;
+  }
 }
 
 @media (max-width: 380px) {
@@ -462,9 +467,7 @@ div.eapps-widget{
   .footer-text h1 {
     font-size: 11px;
   }
-  .footer-img img {
-    width: 100%;
-  }
+
   .contact-btn button {
     width: 130px;
     height: 40px;
