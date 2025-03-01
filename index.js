@@ -3,10 +3,12 @@ import "dotenv/config";
 import path from "path";
 import uploadRoute, { folders } from "./router/upload-route.js";
 import useAuthRouter from './router/auth.js'
+import formSumbit from './router/form.js'
 import cors from 'cors'
 const port = process.env.PORT || 5000;
 const app = express();
 const __dirname = path.resolve()
+
 app.use(cors())
 app.use(express.static("./dist"));
 app.use(express.json())
@@ -21,6 +23,7 @@ folders.forEach(e=>{
 })
 app.use("/api", uploadRoute);
 app.use('/auth' ,useAuthRouter)
+app.use('/form',formSumbit)
 app.get('/')
 app.get('/*', function(req, res) {
   res.sendFile(path.join(path.resolve(), 'dist','index.html'), function(err) {

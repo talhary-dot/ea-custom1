@@ -7,7 +7,7 @@ import "./App.css";
 import { FullCarousel } from "./Component/slider1";
 
 function App() {
-  const [images, setImages] = useState([]);
+
   const [imagesOne,setImagesOne] =useState([])
   const [imagesTwo,setImagesTwo] = useState([])
   const [imagesThree,setImagesThree] = useState([])
@@ -21,28 +21,19 @@ function App() {
       const {data:image3} = await axios.get(url+'/api/banner3-photos')
       setImagesThree(image3.images)
       const {data:mainImage} = await axios.get(url+'/api/banner4-photos')
-      setImageMain(mainImage.images[0])
-    } catch (error) {}
+     
+      setImageMain(mainImage?.images[0])
+    } catch (error) {
+      console.log(error)
+    }
   };
   useEffect(() => {
+    console.log(url)
+    console.log(imageMain)
     fetchImages()
-  },[]);
+  },[imageMain]);
   
-  const handleUpload = (e) => {
-    const files = Array.from(e.target.files); 
-    const imagePreviews = files.map((file) => {
-      return {
-        file,
-        preview: URL.createObjectURL(file), 
-      };
-    });
-    setImages(imagePreviews); 
-  };
-  const handleDelete = (index) => {
-    setImages(
-      (prevImages) => prevImages.filter((_, i) => i !== index) 
-    );
-  };
+ 
   return (
     <>
       <section className="hero-section"
@@ -177,158 +168,7 @@ function App() {
         <div className="contact-form" id="quote">
           <h1>REQUEST QUOTE</h1>
           <p>Fixing or customizing we will take care of it!</p>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="main-flex-box">
-              <div className="d-form-box1">
-                <label for="first-name">First Name</label>
-              </div>
-              <div className="d-form-box2">
-                <input
-                  type="text"
-                  id="first-name"
-                  name="first_name"
-                  placeholder="Enter your first name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="main-flex-box">
-              <div className="d-form-box1">
-                <label for="last-name">Last Name</label>
-              </div>
-              <div className="d-form-box2">
-                <input
-                  type="text"
-                  id="last-name"
-                  name="last_name"
-                  placeholder="Enter your last name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="main-flex-box">
-              <div className="d-form-box1">
-                <label for="postcode">Postcode</label>
-              </div>
-              <div className="d-form-box2">
-                <input
-                  type="text"
-                  id="postcode"
-                  name="postcode"
-                  placeholder="Enter your postcode"
-                  required
-                />
-              </div>
-            </div>
-            <div className="main-flex-box">
-              <div className="d-form-box1">
-                <label for="email">Email</label>
-              </div>
-              <div className="d-form-box2">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="main-flex-box">
-              <div className="d-form-box1">
-                <label for="phone">Phone</label>
-              </div>
-              <div className="d-form-box2">
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="Enter your phone number"
-                  required
-                />
-              </div>
-            </div>
-
-            <label for="details">More Details About Your Request</label>
-            <textarea
-              id="details"
-              name="details"
-              rows="5"
-              placeholder="Provide more details about your request"
-              required
-            ></textarea>
-            <label className="upload-label">
-              Upload picture
-              <input
-                type="file"
-                multiple
-                id="picture"
-                name="picture"
-                accept="image/*"
-                onChange={handleUpload}
-              />
-            </label>
-
-            <div
-              className="preview-container"
-              style={{
-                display: "flex",
-                overflowY: "scroll",
-                flexDirection: "row",
-              }}
-              id="preview-container"
-            >
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className="image-preview"
-                  style={{
-                    position: "relative", // Add position relative to the parent container
-                    display: "inline-block", // Ensure images are displayed inline
-                    margin: "10px", // Add some spacing between images
-                  }}
-                >
-                  <img
-                    src={image.preview}
-                    alt={`Preview ${index}`}
-                    style={{
-                      width: "100px",
-                      height: "100px",
-                      objectFit: "cover",
-                      borderRadius: "5px", // Optional: Add rounded corners
-                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Optional: Add a shadow for better visuals
-                    }}
-                  />
-                  <button
-                    onClick={() => handleDelete(index)}
-                    style={{
-                      position: "absolute",
-                      top: "5px",
-                      right: "5px",
-                      background: "red",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "50%",
-                      width: "20px",
-                      height: "20px",
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "12px", // Ensure the "X" fits well
-                    }}
-                  >
-                    X
-                  </button>
-                </div>
-              ))}
-            </div>
-
-            <button type="submit">Send</button>
-          </form>
+         <FormComponent/>
         </div>
       </section>
 
@@ -355,7 +195,7 @@ function App() {
         <div className="footer-contact">
           <h1>Contact Us</h1>
         </div>
-        <div className="footer-box">
+        <div className=" footer-box ">
           <div className="footer-text">
             <h1>Email: contact@eacustoms.co.uk</h1>
             <h1>Phone: 07415112293</h1>
@@ -393,6 +233,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminRoute from "./Component/admin-page";
 import { url } from "./Component/uploader";
 import Loginpage from "./Component/Loginpage";
+import FormComponent from "./Component/form";
 // Make sure to import the App component
 
 const NewApp = () => {
