@@ -38,7 +38,7 @@ function App() {
     <>
       <section className="hero-section"
        style={{
-        backgroundImage: `url(${url+"/"+imageMain?imageMain : "/Home.png"})`,
+        backgroundImage: (url + "/" + imageMain) ? imageMain : "/Home.png",
       }}>
         <div className="logo-image">
           <a href="">

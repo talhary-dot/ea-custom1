@@ -13,7 +13,7 @@ function App() {
   const [imagesOne, setImagesOne] = useState([]);
   const [imagesTwo, setImagesTwo] = useState([]);
   const [imagesThree, setImagesThree] = useState([]);
-  const [imageMain, setImageMain] = useState();
+  const [imageMain, setImageMain] = useState('/Home.png');
   const token = localStorage.getItem("token");
   if (!token)
     return (
@@ -56,7 +56,7 @@ function App() {
       <section
         className="hero-section"
         style={{
-          backgroundImage: `url(${url+"/"+imageMain?imageMain : "/Home.png"})`,
+            backgroundImage: (url + "/" + imageMain) ? imageMain : "/Home.png",
         }}
       >
         <div className="logo-image">
