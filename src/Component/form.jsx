@@ -9,7 +9,7 @@ const FormComponent = () => {
     phone: "",
     details: "",
   });
-
+ const [loading,setLoading] = useState(false)
   const [images, setImages] = useState([]); // To store image previews
   const [files, setFiles] = useState([]); // To store actual file objects
 
@@ -43,7 +43,7 @@ const FormComponent = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     // Create a FormData object to send data and files
     const formDataToSend = new FormData();
     formDataToSend.append("firstName", formData.first_name);
@@ -83,9 +83,13 @@ const FormComponent = () => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("An error occurred while submitting the form.");
-    }
-  };
+    }finally{
 
+        setLoading(false)
+    }
+    
+  };
+ 
   return (
     <form onSubmit={handleSubmit}>
       <div className="main-flex-box">
@@ -250,7 +254,9 @@ const FormComponent = () => {
         ))}
       </div>
 
-      <button type="submit">Send</button>
+      <button type="submit"  disabled={loading} >
+        {loading?"Submitting...":"Send"}
+      </button>
     </form>
   );
 };
