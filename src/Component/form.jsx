@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {url} from './uploader'
 const FormComponent = () => {
   const [formData, setFormData] = useState({
     first_name: "",
@@ -59,7 +59,7 @@ const FormComponent = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/form", {
+      const response = await fetch(url+"/form", {
         method: "POST",
         body: formDataToSend,
       });
